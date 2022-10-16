@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>First Layout</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun:wght@400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      function changeTheme() {
+        const root = document.querySelector(":root");
+
+        const lightThemeBg = getComputedStyle(root).getPropertyValue("--light-theme-bg");
+        const lightThemeText = getComputedStyle(root).getPropertyValue("--light-theme-text");
+        const lightThemeShadow = getComputedStyle(root).getPropertyValue("--light-theme-shadow");
+
+        const darkThemeBg = getComputedStyle(root).getPropertyValue("--dark-theme-bg");
+        const darkThemeText = getComputedStyle(root).getPropertyValue("--dark-theme-text");
+        const darkThemeTextShadow = getComputedStyle(root).getPropertyValue("--dark-theme-shadow");
+
+        const currentTheme = window
+          .getComputedStyle(document.body, null)
+          .getPropertyValue("background-color");
+
+        if (currentTheme.trim().toString() == lightThemeBg.trim().toString()) {
+          root.style.setProperty("--bg-color", darkThemeBg);
+          root.style.setProperty("--text-color", darkThemeText);
+          root.style.setProperty("--shadow", darkThemeTextShadow);
+          return;
+        }
+
+        root.style.setProperty("--bg-color", lightThemeBg);
+        root.style.setProperty("--text-color", lightThemeText);
+        root.style.setProperty("--shadow", lightThemeShadow);
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <a href="#about">Vem är Robin?</a>
+      <a href="#projects">Projekt</a>
+      <div id="title" onclick="changeTheme()">
+        <h1>Robin Lindgren</h1>
+        <h3><span>Utvecklare</span> / <span>Portfolio</span></h3>
+      </div>
+      <a href="#career">Karriär</a>
+      <a href="#contact">Kontakt</a>
+    </header>
+
+    <main>
+      <section id="about">
+        <div class="card">
+          <h3>Hej och välkommen!</h3>
+          <p>Här hittar ni mina projekt, mitt CV samt min LinkedIn ifall ni är intresserade utav connecta!</p>
+          <p>Vill ni byta till Theme så klickar ni på mitt namn, eller varför inte <span style="color: var(--primary-color)" onclick="changeTheme()">här?!</span></p>
+          <p><b><u>Så, vem är då Robin?</u></b></p>
+          <p>Jag är en 21 årig grabb som har varit förälskad i teknik och problemlösning hela mitt liv!</p>
+          <p>Det var inte förrän <u>2017</u> som jag upptäckte att programmering existerade.</p>
+          <p>Min karriär som utvecklare startade andra året på gymnasiet <u>(2018)</u>, där jag studerade till <em>spelutvecklare</em>.</p>
+          <p>Redan <u>2019</u> fick jag mitt första jobb som frontend utvecklare på ett startup med namnet, Klimato.</p>
+          <p>Sedan dess har det skett mycket. </p>
+          <p>Och idag jobbar jag som systemutvecklare medan jag studerar på sidan av för bredda mina tekniska kunskaper.</p>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="project">
+          <a
+            href="https://github.com/bobba76/chas-academy/tree/main/HT22/html%2C%20css%2C%20javascript/workshop1/2/trafikljus"
+            target="_blank"
+          >
+            <h2>Trafikljus</h2>
+            <img src="./assets/trafficlight.png" alt="Trafikljus" />
+          </a>
+        </div>
+
+        <div class="project">
+          <a href="https://newmillgrill.se" target="_blank">
+            <h2>New Mill Grill</h2>
+            <img src="./assets/newmillgrill.png" alt="New Mill Grill" />
+          </a>
+        </div>
+
+        <div class="project">
+          <a href="https://github.com/bobba76/chas-academy" target="_blank">
+            <h2>Skolprojekt</h2>
+            <img src="./assets/chasacademy.png" alt="Chas Academy" />
+          </a>
+        </div>
+      </section>
+
+      <section>
+          <a href="/assets/resume.pdf" target="_blank" download class="card" id="career">CV</a>
+          <a href="https://www.linkedin.com/in/robin-lindgren/" target="_blank" class="card" id="contact">Kontakta mig</a>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Copyright &copy;
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        Bobba
+      </p>
+    </footer>
+  </body>
+</html>
